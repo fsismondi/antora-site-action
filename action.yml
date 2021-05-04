@@ -11,9 +11,19 @@ inputs:
   site_sources_path:
     description: 'The path relative to workspace root, where the asciidoc sources exits'
     required: false
+  antora_generator:
+    description: 'Select generator to be used, either: "@antora/site-generator-default" or "antora-site-generator-lunr"'
+    required: false
+    default: '@antora/site-generator-default'
+  antora_search_bar:
+    description: 'Select wether to enable search bar for documentation'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
      - ${{ inputs.antora_playbook}}
      - ${{ inputs.site_sources_path }}
+     - ${{ inputs.antora_generator }}
+     - ${{ inputs.antora_search_bar }}
