@@ -2,25 +2,33 @@
 
 GitHub action that can be used to generate the https://antora.org/[Antora] site.
 
-== WIP Parameters
+Forked from https://github.com/kameshsampath/antora-test-site[here].
+
+== Parameters
 
 The action has only two parameters:
  
 * `antora_playbook` -- that specifies the Antora playbook path within the repository
-* `site_sources_path` -- the path within `$GITHUB_WORKSPACE` from where to run the site generation
+* `antora_search_bar` -- the path within `$GITHUB_WORKSPACE` from where to run the site generation
+* `antora_generator` -- Select generator to be used, either: "@antora/site-generator-default" or "antora-site-generator-lunr"
+* `site_sources_path` -- Select wether to enable search bar for documentation
 
-== WIP How to add to your action
+
+Select generator to be used, either: "@antora/site-generator-default" or "antora-site-generator-lunr"'
+
+== How to add to your action
 
 [source,yaml]
 ----
 name: "Generate site using antora site action"
-uses: kameshsampath/antora-site-action@v0.2.0
+uses: fsismondi/antora-site-action@master
 with:
     antora_playbook: antora-playbook.yml
+    antora_search_bar: "true"
+    antora_generator: "antora-site-generator-lunr"
     # optional path within the repo, defaults to ${{github.workspace}}
-    site_sources_path: 'site-souces-folder'
+    site_sources_path: 'site-sources-folder'
 ----
 
-For a complete example is available https://github.com/kameshsampath/antora-test-site[here].
 
 
