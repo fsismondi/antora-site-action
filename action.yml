@@ -14,7 +14,7 @@ inputs:
   antora_generator:
     description: 'Select generator to be used, either: "@antora/site-generator-default" or "antora-site-generator-lunr"'
     required: false
-    default: @antora/site-generator-default
+    default: '@antora/site-generator-default'
 runs:
   using: 'docker'
   image: 'Dockerfile'
